@@ -1,3 +1,4 @@
+
 package com.example.tests;
 
 import com.example.Exceptions.NotFoundIdDataSet;
@@ -18,7 +19,7 @@ public class DatasetsTest {
     private final static Logger logger = Logger.getLogger(DatasetsTest.class);
     @Test
     public void getDataSetInfoTest() throws IOException {
-
+        int expectedItemsCount=51;
         String category = "Физическая культура и спорт"; //пам
         String dataSetName = "Велодорожки";
 
@@ -33,24 +34,22 @@ public class DatasetsTest {
 
             logger.debug(String.format("idDataSet:", id));
 
-            Call<DatasetInfo> response =  service.getDataSetInfo(id);
+            Call<DatasetInfo> call =  service.getDataSetInfo(id);
 
-            logger.debug(response);
+            logger.debug(call);
 
-            DatasetInfo datasetInfo = response.execute().body();
-
-            DatasetInfo expectedDataSetInfo = DataSetsService.getExpectedDataSetInfo( category+ "/"+ dataSetName + ".txt");
-
+            DatasetInfo datasetInfo = call.execute().body();
             logger.debug(datasetInfo.toString());
-            logger.debug(expectedDataSetInfo.toString());
+            logger.debug(expectedItemsCount);
 
 
-            Assert.assertEquals(datasetInfo.getItemsCount(), expectedDataSetInfo.getItemsCount());
+            Assert.assertEquals(datasetInfo.getItemsCount(), expectedItemsCount);
 
         } catch (IllegalArgumentException e) {
             logger.error(e);
         } catch (NotFoundIdDataSet e) {
             logger.error(e);
+            Assert.assertTrue(false);
         }
 
     }

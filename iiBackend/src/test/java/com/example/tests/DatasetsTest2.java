@@ -15,20 +15,23 @@ import java.io.IOException;
 public class DatasetsTest2 {
     private final static Logger logger = Logger.getLogger(DatasetsTest2.class);
     @Test
-    public void versionTest() throws IOException {
+    public void versionTest() throws IOException,NotFoundVersionNumber {
 
 
         try {
             DataSetsRequests service = BaseService.getRetrofit2().create(DataSetsRequests.class);
-            String version = DataSetsService.getVersion();
-            Call<Version> response =  service.getVersion();
 
+            Call<Version> response = service.getVersion();
 
             Version data = response.execute().body();
+
+            if (data == null) throw new NotFoundVersionNumber();
+
             Assert.assertEquals("1", data.getVersion());
             logger.debug(data.toString());
         }  catch (NotFoundVersionNumber e) {
             logger.error(e);
+            Assert.assertTrue(false);
         }
 
     }

@@ -7,21 +7,21 @@ public class BaseService {
     private static Retrofit retrofit;
 
     public static Retrofit getRetrofit() {
-        if (retrofit == null) {
+        //if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl("https://apidata.mos.ru/v1/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-        }
+        //}
         return retrofit;
     }
     public static Retrofit getRetrofit2() {
-        if (retrofit == null) {
+        //if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl("https://apidata.mos.ru/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-        }
+        //}
         return retrofit;
     }
 

@@ -31,37 +31,5 @@ public class DataSetsService {
     }
 
 
-    public static DatasetInfo getExpectedDataSetInfo(String path) throws FileNotFoundException {
-
-        FileReader reader = new FileReader(path);
-        DatasetInfo datasetInfo = new Gson().fromJson(reader, DatasetInfo.class);
-
-        return datasetInfo;
-    }
-    public static String getVersion() throws IOException, NotFoundVersionNumber {
-
-        DataSetsRequests service = BaseService.getRetrofit2().create(DataSetsRequests.class);
-
-        Call<Version> response = service.getVersion();
-
-        Version data = response.execute().body();
-
-        if (data == null) throw new NotFoundVersionNumber();
-        return data.getVersion();
-    }
-
-    public static VersionAndRelease getVersionandRelease() throws IOException, NotFoundIdDataSet {
-
-        DataSetsRequests service = BaseService.getRetrofit().create(DataSetsRequests.class);
-
-        Call<VersionAndRelease> response = service.getVersionAndRelease(897);
-
-        VersionAndRelease data = response.execute().body();
-
-        if (data == null) throw new NotFoundIdDataSet();
-
-        return data;
-    }
-
 
 }

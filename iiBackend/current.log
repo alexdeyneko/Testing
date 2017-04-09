@@ -1,5 +1,10 @@
-2017-04-02 20:15:23,507 [DEBUG] - Category: 
-2017-04-02 20:15:23,507 [DEBUG] - dataSetName:
-2017-04-02 20:15:23,976 [DEBUG] - idDataSet:
-2017-04-02 20:15:24,007 [DEBUG] - retrofit2.OkHttpCall@6c3f5566
-2017-04-02 20:15:24,374 [DEBUG] - {"versionNumber":3,"releaseNumber":2}
+2017-04-09 17:36:03,015 [DEBUG] - Category: 
+2017-04-09 17:36:03,015 [DEBUG] - dataSetName:
+2017-04-09 17:36:03,796 [DEBUG] - idDataSet:
+2017-04-09 17:36:03,796 [DEBUG] - retrofit2.OkHttpCall@6f1de4c7
+2017-04-09 17:36:03,984 [DEBUG] - {"Id":897,"CategoryId":15,"CategoryCaption":"Физическая культура и спорт","DepartmentId":14,"DepartmentCaption":"Департамент транспорта и развития дорожно-транспортной инфраструктуры города Москвы","Caption":"Велодорожки","Description":"Дорожки велосипедные","ContainsGeodata":true,"VersionNumber":"3.2","VersionDate":"03.08.2016","ItemsCount":51,"Columns":[{"Name":"Name","Caption":"Наименование велосипедной дорожки","Visible":true,"Type":"STRING"},{"Name":"PortionName","Caption":"Наименование участка велосипедной дорожки","Visible":false,"Type":"STRING"},{"Name":"Type","Caption":"Тип велосипедной дорожки","Visible":true,"Type":"DICTIONARY"},{"Name":"Width","Caption":"Ширина полосы (м)","Visible":true,"Type":"NUMBER"},{"Name":"Location","Caption":"Месторасположение объекта","Visible":true,"Type":"STRING"},{"Name":"DepartamentalAffiliation","Caption":"Ведомственная принадлежность","Visible":false,"Type":"DICTIONARY"},{"Name":"OperOrgName","Caption":"Наименование эксплуатирующей организации","Visible":false,"Type":"STRING"},{"Name":"ObjectOperOrgPhone","Caption":"Телефон эксплуатирующей организации","Visible":true,"Type":"STRING"},{"Name":"geoData","Caption":"Геоданные","Visible":false,"Type":"CATALOG","SubColumns":[{"Name":"type","Caption":"Тип","Visible":false,"Type":"STRING"},{"Name":"coordinates","Caption":"Координаты","Visible":false,"Type":"CATALOG"}]},{"Name":"global_id","Caption":"global_id","Visible":false,"Type":"NUMBER"}]}
+2017-04-09 17:36:03,984 [DEBUG] - 51
+2017-04-09 17:36:04,171 [DEBUG] - {"Version":"1"}
+2017-04-09 17:36:04,374 [DEBUG] - idDataSet:
+2017-04-09 17:36:04,539 [DEBUG] - Реальность:Версия: 3 Релиз:  2
+2017-04-09 17:36:04,539 [DEBUG] - Ожидание:Версия: 3 Релиз:  2
