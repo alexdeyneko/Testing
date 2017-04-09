@@ -16,7 +16,7 @@ import java.io.IOException;
 public class DatasetsTest3 {
     private final static Logger logger = Logger.getLogger(DatasetsTest.class);
     @Test
-    public void getReleaseAndVersionTest() throws IOException {
+    public void getReleaseAndVersionTest() throws Exception {
         String category = "Велодорожки";
         VersionAndRelease expected=new VersionAndRelease();
         VersionAndRelease data;
@@ -37,8 +37,8 @@ public class DatasetsTest3 {
             Assert.assertEquals(data.getReleaseNumber(), expected.getReleaseNumber());
 
         } catch (NotFoundIdDataSet e) {
-            logger.error(e);
-            Assert.assertTrue(false);
+            logger.error(e.toString());
+            throw new Exception(e.toString());
         }
 
 

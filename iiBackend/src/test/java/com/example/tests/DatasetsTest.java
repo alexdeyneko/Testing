@@ -18,7 +18,7 @@ import java.io.IOException;
 public class DatasetsTest {
     private final static Logger logger = Logger.getLogger(DatasetsTest.class);
     @Test
-    public void getDataSetInfoTest() throws IOException {
+    public void getDataSetInfoTest() throws Exception {
         int expectedItemsCount=51;
         String category = "Физическая культура и спорт"; //пам
         String dataSetName = "Велодорожки";
@@ -48,8 +48,8 @@ public class DatasetsTest {
         } catch (IllegalArgumentException e) {
             logger.error(e);
         } catch (NotFoundIdDataSet e) {
-            logger.error(e);
-            Assert.assertTrue(false);
+            logger.error(e.toString());
+            throw new Exception(e.toString());
         }
 
     }

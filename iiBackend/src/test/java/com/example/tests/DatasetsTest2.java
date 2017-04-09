@@ -12,10 +12,12 @@ import retrofit2.Call;
 
 import java.io.IOException;
 
+import static org.testng.Assert.assertEquals;
+
 public class DatasetsTest2 {
     private final static Logger logger = Logger.getLogger(DatasetsTest2.class);
     @Test
-    public void versionTest() throws IOException,NotFoundVersionNumber {
+    public void versionTest() throws NotFoundVersionNumber,Exception {
 
 
         try {
@@ -27,11 +29,12 @@ public class DatasetsTest2 {
 
             if (data == null) throw new NotFoundVersionNumber();
 
-            Assert.assertEquals("1", data.getVersion());
+            assertEquals("1", data.getVersion());
             logger.debug(data.toString());
+
         }  catch (NotFoundVersionNumber e) {
-            logger.error(e);
-            Assert.assertTrue(false);
+            logger.error(e.toString());
+            throw new Exception(e.toString());
         }
 
     }
