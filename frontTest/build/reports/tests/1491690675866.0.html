@@ -1,0 +1,860 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Портал открытых данных</title>
+    <link rel="icon" type="image/png" href="/Content/img/favicon.png" />
+    <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script src="/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1"></script>
+
+    <script src="/bundles/jquery?v=7J-BVZfjOtVmgsij9oGTppovhlfVh535nCbwXaZyt_s1"></script>
+
+    <script src="/bundles/knockout?v=76AIGLyY_agf8nmHAUeHF5fo0HxMeiQhRw6ATlkJEeQ1"></script>
+
+    <script src="/js/moment.min.js"></script>
+    <script src="/js/vendor/jquery.min.js"></script>
+    <script src="/js/ui.datepicker-ru.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/vendor/jquery-ui-1.9.2.min.js"></script>
+    <script src="/js/vendor/jquery.datepicker.ru-RU.js"></script>
+    <!-- русификация календаря -->
+    <script src="/js/vendor/jquery.mousewheel.js"></script>
+    <!-- Стилизованный скролл -->
+    <script src="/js/vendor/jquery.jscrollpane.min.js"></script>
+    <!-- Стилизованный скролл -->
+    <script src="/js/vendor/jquery.cookie.js"></script>
+    <!-- Для работы с куками -->    
+    <script src="/js/es5-sham.js" type="text/javascript"></script>
+    <script src="/js/es5-shim.js" type="text/javascript"></script>
+    
+    <script src="/js/q.min.js"></script>
+    <script src="/js/breeze.min.js"></script>
+    
+    <script src="/bundles/extends?v=f1suut5GRlaMNYfAPlQfooa3Gq-iuQ3lKuI2hQaDQgk1"></script>
+
+    <script src="/js/app/vm/special/specialMenu.js"></script>
+   
+
+    <link rel="stylesheet" href="/Content/SpecialStyle/SpecialReset.css" />
+    <link href="/css/Redesign/foundation.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/SpecialStyle/SpecialStyle.css" />
+    <link href="/Content/SpecialStyle/SpecialThemeStyle.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="/Content/themes/jquery-ui-1.10.2.custom.css" />
+    <link rel="stylesheet" href="/Content/themes/base/jquery.ui.menu.css" />
+    <link rel="stylesheet" href="/Content/themes/base/jquery.ui.datepicker.css" />
+    
+<meta class="foundation-data-attribute-namespace" /><meta class="foundation-mq-xxlarge" /><meta class="foundation-mq-xlarge" /><meta class="foundation-mq-large" /><meta class="foundation-mq-medium" /><meta class="foundation-mq-small" /><style></style><script src="https://stats.mos.ru/handler/handler.js?time=1491690670613"></script></head>
+	<body data-bind="css: app.specialMenu.newClass()" class="Arial ls_standart cs_whait"><div class="bodyAjaxLoader"></div>
+    
+        <div class="all Arial ls_standart cs_whait" data-bind="css: app.specialMenu.newClass()" id="body">
+            <div class="main">
+                <div class="top_bar clearfix" id="top_bar">
+                    <div class="search">
+                    <form action="/special/Search" method="GET" onsubmit="return check()" class="search_group">
+                        <table>
+                            <tbody><tr>
+                                <td><input type="text" id="text" name="text" placeholder="Поиск по материалам портала" class="ui-autocomplete-input" autocomplete="off" /><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></td>
+                                <td><input type="submit" value="" title="Найти" /></td>
+                            </tr>
+                        </tbody></table>
+                    </form>
+                </div>
+                    <ul class="links">
+                        <li>
+                            <u>
+                                <span style="display:none">
+                                    <a href="/special/Home/ChangeCulture?lang=ru&amp;returnUrl=%2Fspecial">РУС</a>
+                                </span>
+                                <span style="display:block">
+                                    <a href="/special/Home/ChangeCulture?lang=en&amp;returnUrl=%2Fspecial">ENG</a>
+                                </span> 
+                            </u>
+                        </li>
+                        <li>
+ 
+                            <u>
+                                <span>
+                                    <a href="/" style="border-bottom: none">
+                                        Обычная версия
+                                    </a>
+                                </span> 
+                            </u>
+                        </li>
+                        <li>
+                            <u class="settings">
+                                <span data-bind="click: function () {app.specialMenu.activeSetting(true);}">Настройки</span>
+                            </u>
+<div class="hide Arial ls_standart cs_whait" data-bind="css: app.specialMenu.styleForSettingWindow()" style="color: #1A1A1A">
+    <div class="settings_close" data-bind="click: function () { app.specialMenu.activeSetting(false); app.specialMenu.load(); }"></div>
+    <table>
+        <tbody><tr>
+            <th>Шрифт</th>
+            <td>
+                <div>
+                    <input type="radio" class="niceRadio" name="myradio" id="radio1" checked="checked" value="Arial" data-bind="click: app.specialMenu.changeFont.bind($data, 'Arial'), checked: app.specialMenu.fontFamily" />
+                    <label class="Arial" for="radio1">Arial</label>
+                </div>
+                <div>
+                    <input type="radio" class="niceRadio" name="myradio" id="radio2" value="Times_New_Roman" data-bind="click: app.specialMenu.changeFont.bind($data, 'Times_New_Roman'), checked: app.specialMenu.fontFamily()" />
+                    <label class="Times_New_Roman" for="radio2">Times New Roman</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>Интервал<br />
+                между буквами</th>
+            <td>
+                <div>
+                    <input type="radio" class="niceRadio" name="myradio1" id="radio3" value="ls_standart" data-bind="click: app.specialMenu.changeInterval.bind($data, 'ls_standart'), checked: app.specialMenu.interval " />
+                    <label class="ls_standart" for="radio3">Стандартный</label>
+                </div>
+                <div>
+                    <input type="radio" class="niceRadio" name="myradio1" id="radio4" value="ls_medium" data-bind="click: app.specialMenu.changeInterval.bind($data, 'ls_medium'), checked: app.specialMenu.interval" />
+                    <label class="ls_medium" for="radio4">Средний</label>
+                </div>
+                <div>
+                    <input type="radio" class="niceRadio" name="myradio1" id="radio5" value="ls_big" data-bind="click: app.specialMenu.changeInterval.bind($data, 'ls_big'), checked: app.specialMenu.interval" />
+                    <label class="ls_big" for="radio5">Большой</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>Цветовая схема</th>
+            <td>
+                <ul class="color_settings">
+                    <li>
+                        <label for="radio6" class="whait">Аа</label>
+                        <input type="radio" class="niceRadio" name="myradio2" id="radio6" value="cs_whait" data-bind="click: app.specialMenu.changeColorScheme.bind($data, 'cs_whait'), checked: app.specialMenu.colorScheme" />
+                    </li>
+                    <li>
+                        <label for="radio10" class="black">Аа</label>
+                        <input type="radio" class="niceRadio" name="myradio2" id="radio10" value="cs_black" data-bind="click: app.specialMenu.changeColorScheme.bind($data, 'cs_black'), checked: app.specialMenu.colorScheme" />
+                    </li>
+                    <li>
+                        <label for="radio7" class="blue">Аа</label>
+                        <input type="radio" class="niceRadio" name="myradio2" id="radio7" value="cs_blue" data-bind="click: app.specialMenu.changeColorScheme.bind($data, 'cs_blue'), checked: app.specialMenu.colorScheme" />
+                    </li>
+                    <li>
+                        <label for="radio8" class="beige">Аа</label>
+                        <input type="radio" class="niceRadio" name="myradio2" id="radio8" value="cs_beige" data-bind="click: app.specialMenu.changeColorScheme.bind($data, 'cs_beige'), checked: app.specialMenu.colorScheme" />
+                    </li>
+                    <li>
+                        <label for="radio9" class="brown">Аа</label>
+                        <input type="radio" class="niceRadio" name="myradio2" id="radio9" value="cs_brown" data-bind="click: app.specialMenu.changeColorScheme.bind($data, 'cs_brown'), checked: app.specialMenu.colorScheme" />
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody></table>
+    <div class="btn_group">
+        <span class="btn" data-bind="click: app.specialMenu.changeStyle">Сохранить</span>
+        <span class="btn" data-bind="click: app.specialMenu.resetStyle">Вернуть стандартные настройки</span>
+    </div>
+</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <header class="header clearfix">
+                    <div class="logo" data-bind="css: { hide: app.specialMenu.loading() }">
+                                <!-- ko if: app.specialMenu.colorScheme()=='cs_whait'-->
+                                <a href="/special/" style="border: none;"> <img src="/Content/img/Special/logo.png" alt="" /></a>
+                                <!-- /ko-->
+                                <!-- ko if: app.specialMenu.colorScheme()=='cs_black'--><!-- /ko-->
+                                <!-- ko if: app.specialMenu.colorScheme()=='cs_blue'--><!-- /ko-->
+                                <!-- ko if: app.specialMenu.colorScheme()=='cs_beige'--><!-- /ko-->
+                                <!-- ko if: app.specialMenu.colorScheme()=='cs_brown'--><!-- /ko-->
+
+                    
+                    </div>
+                    <ul class="outer_links">
+                        <li>
+                            <a href="http://mos.ru" target="_blank">Правительство Москвы</a>
+                            <span class="tg">mos.ru</span>
+                        </li>
+                        <li>
+                            <a href="http://gorod.mos.ru" target="_blank">Наш город</a>
+                            <span class="tg">gorod.mos.ru</span>
+                        </li>
+
+                        <li>
+                            <a href="http://dit.mos.ru" target="_blank">Информационный город</a>
+                            <span class="tg">dit.mos.ru</span>
+                        </li>
+                    </ul>
+                </header>
+                <nav class="menu clearfix">
+                    
+     
+
+<ul>
+        <li class="active">
+        <a href="/special/opendata">Данные</a>
+    </li>
+
+        <li class="">
+        <a href="/special/apps">Приложения</a>
+    </li>
+
+    <li class="">
+        <a href="/special/news">Новости</a>
+    </li>
+    <li><a href="http://eatlas.mos.ru" target="_blank">Карта</a></li>
+    
+    
+        <li class="">
+        <a href="/special/about">Информация</a>
+    </li>
+
+</ul>
+    
+
+                </nav>
+                
+
+<link href="/css/Redesign/filter-icon-style.css" rel="stylesheet" />
+    <script src="/js/vendor/sammy.min.js"></script>
+    <script src="/js/foundation/foundation.js"></script>
+    <script src="/js/foundation/foundation.dropdown.js"></script>
+
+
+
+
+<section class="content" id="content">
+    <h1 style="display: inline-block;">Всего 697 наборов данных</h1>
+    <span class="filter-btn" id="dropFilerLinks" data-dropdown="dropFilterList" aria-controls="dropFilterList" aria-expanded="false"><i class="icon-filter"></i><span class="hide-lt-500">Фильтр по наборам данных</span></span>
+    <div id="dropFilterList" class="f-dropdown dropFilterList" data-dropdown-content="" tabindex="-1" aria-autoclose="false" aria-hidden="false">
+        <span>Статус:</span>
+        <ul>
+            <li class="" data-bind="css: {selected: app.apps.dataFilter().IsNew==true}">
+                <a data-bind="css: {selected: app.apps.dataFilter().IsNew==true}, attr: { href: app.apps.getCategoryLink({IsNew: !app.apps.dataFilter().IsNew}) }" href="/special/opendata?IsActual=true&amp;IsNew=true"><i class="new"></i>Новые</a>
+            </li>
+            <li data-bind="css: {selected: app.apps.dataFilter().IsActual==true}" class="selected"><a data-bind="css: {selected:app.apps.dataFilter().IsActual==true}, attr: { href: app.apps.getCategoryLink({IsActual: !app.apps.dataFilter().IsActual}) }" class="selected" href="/special/opendata?"><i></i>Активные</a></li>
+            <li data-bind="css: {selected: app.apps.dataFilter().IsArchive==true}"><a data-bind="css: {selected:app.apps.dataFilter().IsArchive==true}, attr: { href: app.apps.getCategoryLink({IsArchive:  !app.apps.dataFilter().IsArchive}) }" href="/special/opendata?IsArchive=true&amp;IsActual=true"><i></i>Архивные</a></li>
+        </ul>
+        <span>Категория:</span>
+        <ul>
+
+            <li class="" data-bind="css: {selected:app.apps.dataFilter().ContainsAccEnvData==true}"><a href="/special/opendata?ContainsAccEnvData=true&amp;IsActual=true" data-bind="css: {selected:app.apps.dataFilter().ContainsAccEnvData==true}, attr: { href: app.apps.getCategoryLink( {ContainsAccEnvData:  !app.apps.dataFilter().ContainsAccEnvData}) }"><i class="accessible"></i>Доступная среда</a></li>
+            
+            
+        </ul>
+        <span>Объекты для спорта и отдыха:</span>
+        <ul>
+            <li class="" data-bind="css: {selected: app.apps.isSelectedSeason('Summer')}"><a href="/special/opendata?IsActual=true&amp;Season=Summer" data-bind="css: {selected:app.apps.isSelectedSeason('Summer')}, attr: { href: app.apps.getCategoryLink({ Season: 'Summer'}) }"><i class="summer"></i>Летние</a></li>
+            <li class="" data-bind="css: {selected: app.apps.isSelectedSeason('Winter')}"><a href="/special/opendata?IsActual=true&amp;Season=Winter" data-bind="css: {selected: app.apps.isSelectedSeason('Winter')}, attr: { href: app.apps.getCategoryLink( { Season: 'Winter'}) }"><i class="winter"></i>Зимние</a></li>
+            <li class="" data-bind="css: {selected: app.apps.isSelectedSeason('Allseason')}"><a href="/special/opendata?IsActual=true&amp;Season=Allseason" data-bind="css: {selected: app.apps.isSelectedSeason('Allseason')}, attr: { href: app.apps.getCategoryLink({ Season: 'Allseason'}) }"><i class="allseason"></i>Всесезонные</a></li>
+        </ul>
+        <span>Просмотр на карте:</span>
+        <ul>
+            <li class="" data-bind="css: {selected:app.apps.dataFilter().HasMap==true}"><a href="/special/opendata?IsActual=true&amp;HasMap=true" data-bind="css: {selected:app.apps.dataFilter().HasMap==true}, attr: { href: app.apps.getCategoryLink( {HasMap:  !app.apps.dataFilter().HasMap}) }"><i></i>С картой</a></li>
+            <li class="" data-bind="css: {selected:app.apps.dataFilter().WithoutMap}"><a href="/special/opendata?IsActual=true&amp;WithoutMap=true" data-bind="css: {selected:app.apps.dataFilter().WithoutMap==true}, attr: { href: app.apps.getCategoryLink( {WithoutMap:  !app.apps.dataFilter().WithoutMap}) }"><i></i>Без карты</a></li>
+        </ul>
+        
+    </div>
+
+    <div class="dropdown_container" data-bind="css:{expand: app.apps.showingDiv()=='Category'}">
+        <div class="DC_text" data-bind="click: function(){ app.apps.showingDiv()==='Category' ? app.apps.showingDiv('') : app.apps.showingDiv('Category'); }">
+            Категории <span data-bind="text:app.apps.CategoryIds().length">28</span>
+            <div class="triangle" data-bind="text:app.apps.showingDiv()!='Category'?'▼':'▲'">▼</div>
+        </div>
+        <div class="hide" data-bind="css:{hide: app.apps.showingDiv()!='Category', dropdown_menu: app.apps.showingDiv()=='Category'} ">
+            <div class="check_all" data-bind="click: function(){app.apps.CategoryIds([241,221,181,161,143,13,162,2,201,3,4,5,6,7,282,9,202,141,121,10,21,204,11,12,142,14,15,203]);}">
+                Выбрать все
+            </div>
+            <div class="uncheck_all" data-bind="click: function(){app.apps.CategoryIds.removeAll();}"></div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_241" data-bind="click: app.apps.toggleCategory.bind($data, 241), checked: app.apps.checkCategory(241)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(241)}"></div>
+                    <label for="ch_241">Активный гражданин (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_221" data-bind="click: app.apps.toggleCategory.bind($data, 221), checked: app.apps.checkCategory(221)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(221)}"></div>
+                    <label for="ch_221">Архитектура и строительство (7)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_181" data-bind="click: app.apps.toggleCategory.bind($data, 181), checked: app.apps.checkCategory(181)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(181)}"></div>
+                    <label for="ch_181">Безопасность (11)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_161" data-bind="click: app.apps.toggleCategory.bind($data, 161), checked: app.apps.checkCategory(161)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(161)}"></div>
+                    <label for="ch_161">Выборы (1)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_143" data-bind="click: app.apps.toggleCategory.bind($data, 143), checked: app.apps.checkCategory(143)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(143)}"></div>
+                    <label for="ch_143">Государственные услуги (8)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_13" data-bind="click: app.apps.toggleCategory.bind($data, 13), checked: app.apps.checkCategory(13)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(13)}"></div>
+                    <label for="ch_13">Дороги и транспорт (32)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_162" data-bind="click: app.apps.toggleCategory.bind($data, 162), checked: app.apps.checkCategory(162)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(162)}"></div>
+                    <label for="ch_162">Досуг и отдых (54)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_2" data-bind="click: app.apps.toggleCategory.bind($data, 2), checked: app.apps.checkCategory(2)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(2)}"></div>
+                    <label for="ch_2">Жилищно-коммунальное хозяйство (41)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_201" data-bind="click: app.apps.toggleCategory.bind($data, 201), checked: app.apps.checkCategory(201)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(201)}"></div>
+                    <label for="ch_201">Забота о животных (4)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_3" data-bind="click: app.apps.toggleCategory.bind($data, 3), checked: app.apps.checkCategory(3)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(3)}"></div>
+                    <label for="ch_3">Здравоохранение (39)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_4" data-bind="click: app.apps.toggleCategory.bind($data, 4), checked: app.apps.checkCategory(4)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(4)}"></div>
+                    <label for="ch_4">Земля и имущество (23)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_5" data-bind="click: app.apps.toggleCategory.bind($data, 5), checked: app.apps.checkCategory(5)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(5)}"></div>
+                    <label for="ch_5">Культура (24)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_6" data-bind="click: app.apps.toggleCategory.bind($data, 6), checked: app.apps.checkCategory(6)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(6)}"></div>
+                    <label for="ch_6">Образование (67)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_7" data-bind="click: app.apps.toggleCategory.bind($data, 7), checked: app.apps.checkCategory(7)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(7)}"></div>
+                    <label for="ch_7">Общественное питание (15)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_282" data-bind="click: app.apps.toggleCategory.bind($data, 282), checked: app.apps.checkCategory(282)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(282)}"></div>
+                    <label for="ch_282">Обязательные для публикации наборы данных (7)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_9" data-bind="click: app.apps.toggleCategory.bind($data, 9), checked: app.apps.checkCategory(9)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(9)}"></div>
+                    <label for="ch_9">Органы государственной власти (6)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_202" data-bind="click: app.apps.toggleCategory.bind($data, 202), checked: app.apps.checkCategory(202)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(202)}"></div>
+                    <label for="ch_202">Пешеходная инфраструктура (6)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_141" data-bind="click: app.apps.toggleCategory.bind($data, 141), checked: app.apps.checkCategory(141)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(141)}"></div>
+                    <label for="ch_141">Предпринимательство (12)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_121" data-bind="click: app.apps.toggleCategory.bind($data, 121), checked: app.apps.checkCategory(121)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(121)}"></div>
+                    <label for="ch_121">Связь (5)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_10" data-bind="click: app.apps.toggleCategory.bind($data, 10), checked: app.apps.checkCategory(10)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(10)}"></div>
+                    <label for="ch_10">Социальная среда (31)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_21" data-bind="click: app.apps.toggleCategory.bind($data, 21), checked: app.apps.checkCategory(21)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(21)}"></div>
+                    <label for="ch_21">Справочная информация (123)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_204" data-bind="click: app.apps.toggleCategory.bind($data, 204), checked: app.apps.checkCategory(204)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(204)}"></div>
+                    <label for="ch_204">Строительство (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_11" data-bind="click: app.apps.toggleCategory.bind($data, 11), checked: app.apps.checkCategory(11)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(11)}"></div>
+                    <label for="ch_11">Территориальное деление (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_12" data-bind="click: app.apps.toggleCategory.bind($data, 12), checked: app.apps.checkCategory(12)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(12)}"></div>
+                    <label for="ch_12">Торговля (98)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_142" data-bind="click: app.apps.toggleCategory.bind($data, 142), checked: app.apps.checkCategory(142)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(142)}"></div>
+                    <label for="ch_142">Трудоустройство (15)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_14" data-bind="click: app.apps.toggleCategory.bind($data, 14), checked: app.apps.checkCategory(14)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(14)}"></div>
+                    <label for="ch_14">Улично-дорожная сеть (7)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_15" data-bind="click: app.apps.toggleCategory.bind($data, 15), checked: app.apps.checkCategory(15)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(15)}"></div>
+                    <label for="ch_15">Физическая культура и спорт (42)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="ch_203" data-bind="click: app.apps.toggleCategory.bind($data, 203), checked: app.apps.checkCategory(203)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked: app.apps.checkCategory(203)}"></div>
+                    <label for="ch_203">Финансы (11)</label>
+                </div>
+        </div>
+    </div>
+    <div class="dropdown_container" data-bind="css:{expand: app.apps.showingDiv()=='Department'}">
+        <div class="DC_text" data-bind="click: function(){ app.apps.showingDiv()==='Department' ? app.apps.showingDiv('') : app.apps.showingDiv('Department');}">
+            ОИВ <span data-bind="text: app.apps.DepartmentsIds().length">48</span>
+            <div class="triangle" data-bind="text:  app.apps.showingDiv()!='Department'?'▼':'▲'">▼</div>
+        </div>
+        <div class="hide" data-bind="css:{hide: app.apps.showingDiv()!='Department', dropdown_menu: app.apps.showingDiv()=='Department'}">
+            <div class="check_all" data-bind="click: function(){app.apps.DepartmentsIds([2,3,5,6,7,8,9,12,13,14,15,16,17,18,19,20,321,341,21,22,23,41,101,102,121,141,161,167,181,182,183,184,185,186,201,202,281,301,361,381,241,282,221,322,342,261,323,343]);}">
+                Выбрать все
+            </div>
+            <div class="uncheck_all" data-bind="click: function(){app.apps.DepartmentsIds.removeAll();}"></div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_281" data-bind="click: app.apps.toggleDepartments.bind($data, 281), checked: app.apps.checkDepartments(281)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(281)}"></div>
+                    <label for="dep_281">Главное архивное управление города Москвы (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_323" data-bind="click: app.apps.toggleDepartments.bind($data, 323), checked: app.apps.checkDepartments(323)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(323)}"></div>
+                    <label for="dep_323">Главное контрольное управление города Москвы (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_161" data-bind="click: app.apps.toggleDepartments.bind($data, 161), checked: app.apps.checkDepartments(161)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(161)}"></div>
+                    <label for="dep_161">Государственная жилищная инспекция города Москвы (8)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_282" data-bind="click: app.apps.toggleDepartments.bind($data, 282), checked: app.apps.checkDepartments(282)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(282)}"></div>
+                    <label for="dep_282">Государственная инспекция города Москвы по качеству сельскохозяйственной продукции, сырья и продовольствия (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_101" data-bind="click: app.apps.toggleDepartments.bind($data, 101), checked: app.apps.checkDepartments(101)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(101)}"></div>
+                    <label for="dep_101">Государственная инспекция по контролю за использованием объектов недвижимости города Москвы (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_261" data-bind="click: app.apps.toggleDepartments.bind($data, 261), checked: app.apps.checkDepartments(261)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(261)}"></div>
+                    <label for="dep_261">Государственное бюджетное учреждение «Многофункциональные центры предоставления государственных услуг города Москвы» (1)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_343" data-bind="click: app.apps.toggleDepartments.bind($data, 343), checked: app.apps.checkDepartments(343)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(343)}"></div>
+                    <label for="dep_343">Департамент внешнеэкономических и международных связей города Москвы (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_182" data-bind="click: app.apps.toggleDepartments.bind($data, 182), checked: app.apps.checkDepartments(182)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(182)}"></div>
+                    <label for="dep_182">Департамент города Москвы по конкурентной политике (6)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_5" data-bind="click: app.apps.toggleDepartments.bind($data, 5), checked: app.apps.checkDepartments(5)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(5)}"></div>
+                    <label for="dep_5">Департамент городского имущества города Москвы (25)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_241" data-bind="click: app.apps.toggleDepartments.bind($data, 241), checked: app.apps.checkDepartments(241)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(241)}"></div>
+                    <label for="dep_241">Департамент градостроительной политики города Москвы (5)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_2" data-bind="click: app.apps.toggleDepartments.bind($data, 2), checked: app.apps.checkDepartments(2)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(2)}"></div>
+                    <label for="dep_2">Департамент жилищно-коммунального хозяйства и благоустройства города Москвы (25)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_3" data-bind="click: app.apps.toggleDepartments.bind($data, 3), checked: app.apps.checkDepartments(3)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(3)}"></div>
+                    <label for="dep_3">Департамент здравоохранения города Москвы (43)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_121" data-bind="click: app.apps.toggleDepartments.bind($data, 121), checked: app.apps.checkDepartments(121)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(121)}"></div>
+                    <label for="dep_121">Департамент информационных технологий города Москвы (26)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_6" data-bind="click: app.apps.toggleDepartments.bind($data, 6), checked: app.apps.checkDepartments(6)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(6)}"></div>
+                    <label for="dep_6">Департамент капитального ремонта города Москвы (7)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_7" data-bind="click: app.apps.toggleDepartments.bind($data, 7), checked: app.apps.checkDepartments(7)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(7)}"></div>
+                    <label for="dep_7">Департамент культурного наследия города Москвы (6)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_8" data-bind="click: app.apps.toggleDepartments.bind($data, 8), checked: app.apps.checkDepartments(8)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(8)}"></div>
+                    <label for="dep_8">Департамент культуры города Москвы (29)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_41" data-bind="click: app.apps.toggleDepartments.bind($data, 41), checked: app.apps.checkDepartments(41)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(41)}"></div>
+                    <label for="dep_41">Департамент науки, промышленной политики и предпринимательства города Москвы (10)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_322" data-bind="click: app.apps.toggleDepartments.bind($data, 322), checked: app.apps.checkDepartments(322)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(322)}"></div>
+                    <label for="dep_322">Департамент национальной политики и межрегиональных связей города Москвы (16)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_9" data-bind="click: app.apps.toggleDepartments.bind($data, 9), checked: app.apps.checkDepartments(9)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(9)}"></div>
+                    <label for="dep_9">Департамент образования города Москвы (66)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_185" data-bind="click: app.apps.toggleDepartments.bind($data, 185), checked: app.apps.checkDepartments(185)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(185)}"></div>
+                    <label for="dep_185">Департамент по делам гражданской обороны, чрезвычайным ситуациям и пожарной безопасности города Москвы (8)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_102" data-bind="click: app.apps.toggleDepartments.bind($data, 102), checked: app.apps.checkDepartments(102)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(102)}"></div>
+                    <label for="dep_102">Департамент природопользования и охраны окружающей среды города Москвы (29)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_361" data-bind="click: app.apps.toggleDepartments.bind($data, 361), checked: app.apps.checkDepartments(361)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(361)}"></div>
+                    <label for="dep_361">Департамент развития новых территорий города Москвы (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_221" data-bind="click: app.apps.toggleDepartments.bind($data, 221), checked: app.apps.checkDepartments(221)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(221)}"></div>
+                    <label for="dep_221">Департамент региональной безопасности и противодействия коррупции города Москвы (10)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_16" data-bind="click: app.apps.toggleDepartments.bind($data, 16), checked: app.apps.checkDepartments(16)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(16)}"></div>
+                    <label for="dep_16">Департамент спорта и туризма города Москвы (65)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_183" data-bind="click: app.apps.toggleDepartments.bind($data, 183), checked: app.apps.checkDepartments(183)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(183)}"></div>
+                    <label for="dep_183">Департамент средств массовой информации и рекламы города Москвы (4)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_342" data-bind="click: app.apps.toggleDepartments.bind($data, 342), checked: app.apps.checkDepartments(342)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(342)}"></div>
+                    <label for="dep_342">Департамент строительства города Москвы (5)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_12" data-bind="click: app.apps.toggleDepartments.bind($data, 12), checked: app.apps.checkDepartments(12)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(12)}"></div>
+                    <label for="dep_12">Департамент территориальных органов исполнительной власти города Москвы (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_141" data-bind="click: app.apps.toggleDepartments.bind($data, 141), checked: app.apps.checkDepartments(141)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(141)}"></div>
+                    <label for="dep_141">Департамент топливно-энергетического хозяйства города Москвы (9)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_13" data-bind="click: app.apps.toggleDepartments.bind($data, 13), checked: app.apps.checkDepartments(13)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(13)}"></div>
+                    <label for="dep_13">Департамент торговли и услуг города Москвы (121)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_14" data-bind="click: app.apps.toggleDepartments.bind($data, 14), checked: app.apps.checkDepartments(14)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(14)}"></div>
+                    <label for="dep_14">Департамент транспорта и развития дорожно-транспортной инфраструктуры города Москвы (30)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_15" data-bind="click: app.apps.toggleDepartments.bind($data, 15), checked: app.apps.checkDepartments(15)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(15)}"></div>
+                    <label for="dep_15">Департамент труда и социальной защиты населения города Москвы (37)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_186" data-bind="click: app.apps.toggleDepartments.bind($data, 186), checked: app.apps.checkDepartments(186)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(186)}"></div>
+                    <label for="dep_186">Департамент финансов города Москвы (18)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_181" data-bind="click: app.apps.toggleDepartments.bind($data, 181), checked: app.apps.checkDepartments(181)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(181)}"></div>
+                    <label for="dep_181">Департамент экономической политики и развития города Москвы (17)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_202" data-bind="click: app.apps.toggleDepartments.bind($data, 202), checked: app.apps.checkDepartments(202)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(202)}"></div>
+                    <label for="dep_202">Комитет ветеринарии города Москвы (4)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_17" data-bind="click: app.apps.toggleDepartments.bind($data, 17), checked: app.apps.checkDepartments(17)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(17)}"></div>
+                    <label for="dep_17">Комитет города Москвы по обеспечению реализации инвестиционных проектов в строительстве и контролю в области долевого строительства (4)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_167" data-bind="click: app.apps.toggleDepartments.bind($data, 167), checked: app.apps.checkDepartments(167)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(167)}"></div>
+                    <label for="dep_167">Комитет города Москвы по ценовой политике в строительстве и государственной экспертизе проектов (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_18" data-bind="click: app.apps.toggleDepartments.bind($data, 18), checked: app.apps.checkDepartments(18)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(18)}"></div>
+                    <label for="dep_18">Комитет государственного строительного надзора города Москвы (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_19" data-bind="click: app.apps.toggleDepartments.bind($data, 19), checked: app.apps.checkDepartments(19)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(19)}"></div>
+                    <label for="dep_19">Комитет государственных услуг города Москвы (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_381" data-bind="click: app.apps.toggleDepartments.bind($data, 381), checked: app.apps.checkDepartments(381)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(381)}"></div>
+                    <label for="dep_381">Комитет общественных связей города Москвы (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_20" data-bind="click: app.apps.toggleDepartments.bind($data, 20), checked: app.apps.checkDepartments(20)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(20)}"></div>
+                    <label for="dep_20">Комитет по архитектуре и градостроительству города Москвы (6)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_321" data-bind="click: app.apps.toggleDepartments.bind($data, 321), checked: app.apps.checkDepartments(321)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(321)}"></div>
+                    <label for="dep_321">Московская административная дорожная инспекция (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_201" data-bind="click: app.apps.toggleDepartments.bind($data, 201), checked: app.apps.checkDepartments(201)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(201)}"></div>
+                    <label for="dep_201">Московская городская избирательная комиссия (1)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_21" data-bind="click: app.apps.toggleDepartments.bind($data, 21), checked: app.apps.checkDepartments(21)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(21)}"></div>
+                    <label for="dep_21">Объединение административно-технических инспекций города Москвы (8)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_184" data-bind="click: app.apps.toggleDepartments.bind($data, 184), checked: app.apps.checkDepartments(184)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(184)}"></div>
+                    <label for="dep_184">Региональная энергетическая комиссия города Москвы (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_341" data-bind="click: app.apps.toggleDepartments.bind($data, 341), checked: app.apps.checkDepartments(341)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(341)}"></div>
+                    <label for="dep_341">Управление государственной службы и кадров Правительства Москвы (2)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_301" data-bind="click: app.apps.toggleDepartments.bind($data, 301), checked: app.apps.checkDepartments(301)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(301)}"></div>
+                    <label for="dep_301">Управление делами Мэра и Правительства Москвы (3)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_22" data-bind="click: app.apps.toggleDepartments.bind($data, 22), checked: app.apps.checkDepartments(22)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(22)}"></div>
+                    <label for="dep_22">Управление записи актов гражданского состояния города Москвы (9)</label>
+                </div>
+                <div class="checkbox_container">
+                    <input type="checkbox" id="dep_23" data-bind="click: app.apps.toggleDepartments.bind($data, 23), checked: app.apps.checkDepartments(23)" />
+                    <div class="fake_checkbox checked" data-bind="css:{checked:  app.apps.checkDepartments(23)}"></div>
+                    <label for="dep_23">Управление по обеспечению деятельности мировых судей города Москвы (3)</label>
+                </div>
+        </div>
+    </div>
+    <!--<div class="btn_group center">
+            <span class="btn" data-bind="click: load"><b>Применить</b></span>
+        </div>-->
+    <div class="arrows_pager">
+        <span class="arrow-left" data-bind="visible: app.apps.pageNumber()&gt;1, click: function(){app.apps.pageNumber(app.apps.pageNumber()-1)}" style="display: none;"></span>
+        <span class="arrow-right" data-bind="visible: app.apps.pageNumber()&lt; Math.ceil(app.apps.count() / app.apps.pageSize()), click: function(){app.apps.pageNumber(app.apps.pageNumber()+1)}" style="display: none;"></span>
+    </div>
+    <table class="data_table" data-bind="css:{loading: app.apps.loading()}">
+        <tbody><tr>
+            <th>№</th>
+            <th data-bind="click: app.apps.toggleSorting.bind($data,'Caption') , css: { sort: app.apps.sortField() === 'Caption', asc: app.apps.sortField() === 'Caption' &amp;&amp; app.apps.sortOrder() === 'ASC', desc: app.apps.sortField() === 'Caption' &amp;&amp; app.apps.sortOrder() === 'DESC'}">Название</th>
+            <th data-bind="click: app.apps.toggleSorting.bind($data, 'CategoryName') , css: { sort: app.apps.sortField() === 'CategoryName', asc: app.apps.sortField() === 'CategoryName' &amp;&amp; app.apps.sortOrder() === 'ASC', desc: app.apps.sortField() === 'CategoryName' &amp;&amp; app.apps.sortOrder() === 'DESC'}">Категория</th>
+            <th data-bind="click: app.apps.toggleSorting.bind($data, 'DepartmentName') , css: { sort: app.apps.sortField() === 'DepartmentName', asc: app.apps.sortField() === 'DepartmentName' &amp;&amp; app.apps.sortOrder() === 'ASC', desc: app.apps.sortField() === 'DepartmentName' &amp;&amp; app.apps.sortOrder() === 'DESC'}">ОИВ</th>
+        </tr>
+        </tbody><tbody data-bind="foreach: app.apps.Datasets"></tbody>
+    </table>
+    <div class="paginator">
+        <ul id="paginator" class="paginator"></ul>
+        <div class="right">
+            Показано по:
+            <select data-bind="value: app.apps.pageSize">
+                <option>5</option>
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+                <option data-bind="value: app.apps.count()" value="0">Все</option>
+            </select>: <b><span data-bind="    text: app.apps.pageSize()*(app.apps.pageNumber()-1)+1">1</span></b>-<b><span data-bind="    text: app.apps.pageSize()*app.apps.pageNumber()&gt;app.apps.count()? app.apps.count: app.apps.pageNumber()*app.apps.pageSize()">0</span></b> из <b><span data-bind="    text: app.apps.count">0</span></b>
+        </div>
+    </div>
+    <ul id="dropPass" class="f-dropdown export-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+        <li><a target="_blank" data-bind="attr:{href: '/apiproxy/opendata/'+app.apps.passportDatasetId()+'/meta.json'}" href="/apiproxy/opendata/undefined/meta.json">.json</a></li>
+        <li><a target="_blank" data-bind="attr:{href:'/apiproxy/opendata/'+app.apps.passportDatasetId()+'/meta.csv'}" href="/apiproxy/opendata/undefined/meta.csv">.csv</a></li>
+    </ul>
+    <ul id="dropExport" class="f-dropdown export-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+        <!--ko foreach: app.apps.formats --><!--/ko-->
+        <li><a target="_blank" href="https://apidata.mos.ru/">geojson <span style="font-size: 0.7em;"><br />доступно только через API</span></a></li>
+    </ul>
+</section>
+
+
+
+    <script src="/js/app/helpers.js?t=bcc1f756-167a-4242-81ac-3f35132bf690"></script>
+    <script src="/js/app/vm/special/apps.js?t=4cb651b1-ee2d-4d97-ad92-dca2d526293f"></script>
+    <script type="text/javascript">
+    var dataFilter = {"ContainsAccEnvData":null,"IsSeasonal":null,"IsArchive":null,"IsActual":true,"IsNew":null,"Season":[],"HasMap":null,"WithoutMap":null};
+        $(document).ready(function() {
+            app.apps.dataFilter(dataFilter);
+            app.apps.dataFilter().Season = [];
+            app.apps.loadStart();
+            app.apps.CategoryIds([241,221,181,161,143,13,162,2,201,3,4,5,6,7,282,9,202,141,121,10,21,204,11,12,142,14,15,203]);
+        app.apps.DepartmentsIds([2,3,5,6,7,8,9,12,13,14,15,16,17,18,19,20,321,341,21,22,23,41,101,102,121,141,161,167,181,182,183,184,185,186,201,202,281,301,361,381,241,282,221,322,342,261,323,343]);
+        app.apps.Categorys = [{"id":241,"name":"Активный гражданин","englishname":"active citizen"},{"id":221,"name":"Архитектура и строительство","englishname":"Architecture and construction"},{"id":181,"name":"Безопасность","englishname":"Security"},{"id":161,"name":"Выборы","englishname":"Elections"},{"id":143,"name":"Государственные услуги","englishname":"Government services"},{"id":13,"name":"Дороги и транспорт","englishname":"Roads &amp; Transport"},{"id":162,"name":"Досуг и отдых","englishname":"Leisure"},{"id":2,"name":"Жилищно-коммунальное хозяйство","englishname":"Housing &amp; Community Amenities"},{"id":201,"name":"Забота о животных","englishname":"Caring for animals"},{"id":3,"name":"Здравоохранение","englishname":"Healthcare"},{"id":4,"name":"Земля и имущество","englishname":"Lands &amp; Tenements"},{"id":5,"name":"Культура","englishname":"Culture"},{"id":6,"name":"Образование","englishname":"Education"},{"id":7,"name":"Общественное питание","englishname":"Food Services"},{"id":282,"name":"Обязательные для публикации наборы данных","englishname":"Mandatory for publishing datasets"},{"id":9,"name":"Органы государственной власти","englishname":"Public Authorities"},{"id":202,"name":"Пешеходная инфраструктура","englishname":"Pedestrian infrastructure"},{"id":141,"name":"Предпринимательство","englishname":"Entrepreneurship"},{"id":121,"name":"Связь","englishname":"Communication"},{"id":10,"name":"Социальная среда","englishname":"Social Facilities"},{"id":21,"name":"Справочная информация","englishname":"References"},{"id":204,"name":"Строительство","englishname":"Construction"},{"id":11,"name":"Территориальное деление","englishname":"Urban Planning"},{"id":12,"name":"Торговля","englishname":"Trade"},{"id":142,"name":"Трудоустройство","englishname":"Employment"},{"id":14,"name":"Улично-дорожная сеть","englishname":"Road Network"},{"id":15,"name":"Физическая культура и спорт","englishname":"Physical Training &amp; Sports"},{"id":203,"name":"Финансы","englishname":"Finance"}];
+        app.apps.Departments = [{"id":2,"name":"Департамент жилищно-коммунального хозяйства и благоустройства города Москвы","englishname":"Department of Housing, Utilities and Amenities"},{"id":3,"name":"Департамент здравоохранения города Москвы","englishname":"Healthcare Department"},{"id":5,"name":"Департамент городского имущества города Москвы","englishname":"Municipal Property Department"},{"id":6,"name":"Департамент капитального ремонта города Москвы","englishname":"Department for Major Housing Repairs"},{"id":7,"name":"Департамент культурного наследия города Москвы","englishname":"Department for Cultural Heritage"},{"id":8,"name":"Департамент культуры города Москвы","englishname":"Department of Culture"},{"id":9,"name":"Департамент образования города Москвы","englishname":"Department for Education"},{"id":12,"name":"Департамент территориальных органов исполнительной власти города Москвы","englishname":"Department of Territorial Executive Authorities"},{"id":13,"name":"Департамент торговли и услуг города Москвы","englishname":"Department of Trade and Services"},{"id":14,"name":"Департамент транспорта и развития дорожно-транспортной инфраструктуры города Москвы","englishname":"Department for Transport and Road Infrastructure Development"},{"id":15,"name":"Департамент труда и социальной защиты населения города Москвы","englishname":"The Department of labour and social protection of population of Moscow"},{"id":16,"name":"Департамент спорта и туризма города Москвы","englishname":"Department for Sports and Tourism"},{"id":17,"name":"Комитет города Москвы по обеспечению реализации инвестиционных проектов в строительстве и контролю в области долевого строительства","englishname":"Committee for Construction-Related Investment Projects and Shared Construction Control"},{"id":18,"name":"Комитет государственного строительного надзора города Москвы","englishname":"Committee for State Oversight in Construction"},{"id":19,"name":"Комитет государственных услуг города Москвы","englishname":"Committee for Public Services"},{"id":20,"name":"Комитет по архитектуре и градостроительству города Москвы","englishname":"Committee for Architecture and Urban Planning"},{"id":321,"name":"Московская административная дорожная инспекция","englishname":"Moscow Administrative Road Inspection Office"},{"id":341,"name":"Управление государственной службы и кадров Правительства Москвы","englishname":"Civil Service and Personnel Directorate of the Moscow Government"},{"id":21,"name":"Объединение административно-технических инспекций города Москвы","englishname":"Association of Administrative and Technical Inspections"},{"id":22,"name":"Управление записи актов гражданского состояния города Москвы","englishname":"General Register Office"},{"id":23,"name":"Управление по обеспечению деятельности мировых судей города Москвы","englishname":"Magistrate Court Administration Authority"},{"id":41,"name":"Департамент науки, промышленной политики и предпринимательства города Москвы","englishname":"Department of Science, Industrial Policy and Entrepreneurship"},{"id":101,"name":"Государственная инспекция по контролю за использованием объектов недвижимости города Москвы","englishname":"State Inspectorate for Immovable Property Utilization Control"},{"id":102,"name":"Департамент природопользования и охраны окружающей среды города Москвы","englishname":"Department of Natural Resources Management and Environmental Protection"},{"id":121,"name":"Департамент информационных технологий города Москвы","englishname":"Department of Information Technologies"},{"id":141,"name":"Департамент топливно-энергетического хозяйства города Москвы","englishname":"Department of Fuel and Energy"},{"id":161,"name":"Государственная жилищная инспекция города Москвы","englishname":"State Housing Inspection"},{"id":167,"name":"Комитет города Москвы по ценовой политике в строительстве и государственной экспертизе проектов","englishname":"The Committee of the city of Moscow for pricing in construction and state expertise of projects"},{"id":181,"name":"Департамент экономической политики и развития города Москвы","englishname":"Department of Economic Policy and Development"},{"id":182,"name":"Департамент города Москвы по конкурентной политике","englishname":"Department for Competition Policy"},{"id":183,"name":"Департамент средств массовой информации и рекламы города Москвы","englishname":"Department for Media and Advertising"},{"id":184,"name":"Региональная энергетическая комиссия города Москвы","englishname":"Regional Energy Commission"},{"id":185,"name":"Департамент по делам гражданской обороны, чрезвычайным ситуациям и пожарной безопасности города Москвы","englishname":"Directorate for Civil Defence"},{"id":186,"name":"Департамент финансов города Москвы","englishname":"Department of Finance"},{"id":201,"name":"Московская городская избирательная комиссия","englishname":"The Moscow city election Committee"},{"id":202,"name":"Комитет ветеринарии города Москвы","englishname":"The veterinary Committee of Moscow"},{"id":281,"name":"Главное архивное управление города Москвы","englishname":"Main archival administration of Moscow"},{"id":301,"name":"Управление делами Мэра и Правительства Москвы","englishname":"Administrative Department of the Mayor and Moscow Government"},{"id":361,"name":"Департамент развития новых территорий города Москвы","englishname":"Department for the Development of New Territories"},{"id":381,"name":"Комитет общественных связей города Москвы","englishname":"Public Relations Committee"},{"id":241,"name":"Департамент градостроительной политики города Москвы","englishname":"Department of Urban Development"},{"id":282,"name":"Государственная инспекция города Москвы по качеству сельскохозяйственной продукции, сырья и продовольствия","englishname":"State Inspectorate for quality of agricultural products, raw materials and food"},{"id":221,"name":"Департамент региональной безопасности и противодействия коррупции города Москвы","englishname":"Department of Regional Security and Anti-Corruption Activities"},{"id":322,"name":"Департамент национальной политики и межрегиональных связей города Москвы","englishname":"Department for Multicultural Policy and Interregional Cooperation"},{"id":342,"name":"Департамент строительства города Москвы","englishname":"Department of Construction"},{"id":261,"name":"Государственное бюджетное учреждение «Многофункциональные центры предоставления государственных услуг города Москвы»","englishname":"State budgetary institution \"the Multipurpose centers of providing the state services of Moscow\""},{"id":323,"name":"Главное контрольное управление города Москвы","englishname":"Main Oversight Directorate"},{"id":343,"name":"Департамент внешнеэкономических и международных связей города Москвы","englishname":"Department for Foreign Economic Activity and International Relations"}];
+        app.apps.foreignCulture("False"=="True");
+
+        ko.applyBindings(app);
+        app.apps.loading(false);
+    });
+    $(document).foundation();
+    </script>
+
+
+            </div>
+            <!--Футер-->
+            <footer class="footer">
+                <ul class="footer_list">
+                    <li>Все права защищены</li>
+                    <li>
+                        <a href="/special/about/terms">Условия использования</a>
+                    </li>
+                </ul>
+                <span class="support">Техническая поддержка: <a href="mailto:opendata@mos.ru">opendata@mos.ru</a></span>
+            </footer>
+        </div>
+        <script type="text/javascript">
+            var app = window.app || {};
+            app.root = "/";
+            app.specialMenu.load();
+            //ko.applyBindings(app);
+            $(function () {
+                //$('#text').placeholder();
+                $('#text').autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "/Search/GetCaptions/",
+                        type: 'GET',
+                        dataType: 'json',
+                        data: { query: $('#text').val() },
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    id: item.Id,
+                                    label: item.Caption + " (" + item.Type + ")",
+                                    value: item.Caption + " (" + item.Type + ")",
+                                    controller: item.Controller,
+
+                                };
+                            }));
+                        }
+                    });
+                },
+                minLength: 2,
+                select: function (event, ui) {
+                    $('#text').val(ui.item.label);
+                    var locationHref = "/";
+
+                    switch (ui.item.controller) {
+
+                        case "services":
+                            location.href = locationHref + ui.item.controller;
+                            break;
+                        default:
+                            location.href = locationHref + "special/" + ui.item.controller + "/" + ui.item.id;
+                            break;
+                    }
+                }
+            });
+
+ });
+            
+            function check() {
+                return $("#text").val().trim() ? true : false;
+            }
+        </script>
+        <script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter14112952 = new Ya.Metrika({
+                    id: 14112952,
+                    webvisor: true,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    ut: "noindex"
+                });
+            } catch (e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    &lt;div&gt;
+        &lt;img src="//mc.yandex.ru/watch/14112952?ut=noindex" style="position: absolute; left: -9999px;" alt="" /&gt;
+    &lt;/div&gt;
+</noscript>
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter19601236 = new Ya.Metrika({
+                    id: 19601236,
+                    webvisor: true,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true, params: window.yaParams || {}
+                });
+            } catch (e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    &lt;div&gt;
+        &lt;img src="//mc.yandex.ru/watch/19601236" style="position: absolute; left: -9999px;" alt="" /&gt;
+    &lt;/div&gt;
+</noscript>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-39899933-1', 'mos.ru');
+    ga('send', 'pageview');
+</script>
+<div></div><script type="text/javascript" id="statsmosru" src="https://stats.mos.ru/counter.js" onload="statsMosRuCounter()" defer="defer" async="true"></script>
+
+    
+
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="z-index: 1; display: none;"></ul></body></html>
