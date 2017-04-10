@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1491848979812" stop="1491849022825" version="1.4.23" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Default Suite : iitfrontend</name>
+    <title>Default Suite : iitfrontend</title>
+    <test-cases>
+        <test-case start="1491848984880" stop="1491849008352" status="passed">
+            <name>changeCategoryMenuElementsBackground</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="pc"/>
+                <label name="thread" value="1544@pc.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1491849013983" stop="1491849022060" status="passed">
+            <name>changeMenuElementsColor</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="pc"/>
+                <label name="thread" value="1544@pc.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

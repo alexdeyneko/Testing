@@ -1,0 +1,17 @@
+{
+  "tests" : [ {
+    "name" : "MyTests#exportDirectory",
+    "startedAt" : 1491856627035,
+    "endedAt" : 1491856674953,
+    "failed" : false,
+    "statistic" : {
+      "passed" : 1,
+      "errors" : 0,
+      "warnings" : 0,
+      "total" : 1
+    },
+    "testId" : "1-mytests-exportdirectory",
+    "duration" : 47918,
+    "failed" : false
+  } ]
+}
