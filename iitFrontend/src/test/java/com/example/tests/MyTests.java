@@ -2,11 +2,10 @@ package com.example.tests;
 import com.codeborne.selenide.SelenideElement;
 import com.example.BaseTest;
 import com.example.components.CategoryItemDataPage;
-import com.example.pages.DataPage;
-import com.example.pages.DataPageShootingRange;
-import com.example.pages.DirectoryPage;
+import com.example.pages.*;
 import com.example.services.ColorService;
 import junit.framework.AssertionFailedError;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,8 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 import static org.testng.FileAssert.fail;
 
 public class MyTests extends BaseTest {
@@ -79,4 +77,36 @@ public class MyTests extends BaseTest {
         }
 
     }
+    @Test void openMapInDataPageAutodromes()
+    {
+
+        String subCategory="Автодромы спортивные крытые";
+        DataPage page=page(DataPage.class);
+        page.navigate();
+        page.shouldBeOpened();
+        page.getCategory(CATEGORY_NAME).click();
+        page.getCategory(subCategory).click();
+
+        DataPageAutodromes newPage=new DataPageAutodromes();
+        newPage.registerNewTab();
+        newPage.waitPageLoaded();
+        newPage.getMenuElementButton__Map().click();
+        Assert.assertEquals("block",newPage.getMapDisplayStyle());
+    }
+    @Test void searchingInTableDirectory()
+    {
+        int expectedRowCount=1;
+        String subCategory="Виды освещения спортивных объектов";
+        String searchString="без дополнительного освещения";
+        DirectoryPage page=new DirectoryPage();
+        page.navigate();
+        page.getCategory(CATEGORY_NAME).click();
+        page.getCategory(subCategory).click();
+        DirectoryPageKindsOfLight newPage=new DirectoryPageKindsOfLight();
+        newPage.registerNewTab();
+        newPage.getSearchForm().sendKeys(searchString);
+        sleep(1000);
+        Assert.assertEquals(newPage.getTableRowCount(),expectedRowCount);
+    }
+//
 }

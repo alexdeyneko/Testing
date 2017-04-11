@@ -1,5 +1,6 @@
 package com.example.pages;
 
+import com.codeborne.selenide.SelenideElement;
 import com.example.components.CategoryItemDataPage;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -14,6 +15,9 @@ public class DataPage extends AbstractPage {
 
     public AbstractPage navigate() {
         return super.navigate(this.getClass());
+    }
+    public SelenideElement getCategory(String category) {
+        return $(byText(category));
     }
 
     @Override
@@ -30,6 +34,10 @@ public class DataPage extends AbstractPage {
     public String getCategoryMenuBackgroundColor(String str){
         return $(byText(str)).parent().hover().getCssValue("background");
     }
+
+
+
+
 
 
 }
