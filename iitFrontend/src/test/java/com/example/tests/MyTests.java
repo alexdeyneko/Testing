@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.FileAssert.fail;
 
@@ -25,7 +26,8 @@ public class MyTests extends BaseTest {
     {
     DataPageShootingRange page = page(DataPageShootingRange.class);
     page.navigate();
-        List<String> menu = new ArrayList<String>();
+    List<String> menu = new ArrayList<String>();
+    page.getMenu().shouldBe(visible);
     menu.add("Паспорт");
     menu.add("Описание");
     menu.add("Справочники");

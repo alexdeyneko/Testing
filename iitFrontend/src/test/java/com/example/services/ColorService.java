@@ -12,7 +12,7 @@ public class ColorService {
     public static boolean isEqualColor(String[]after,String[]before)
     {
         boolean res=true;
-        for (int j=0;j<before.length-1;j++)
+        for (int j=0;j<before.length;j++)
         {
             if(Integer.parseInt(before[j])!=Integer.parseInt(after[j]))
             {
